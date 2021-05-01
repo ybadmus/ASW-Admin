@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '~> 4.8'
 # Use bootstrap as styling framework
 gem 'bootstrap', '~> 4.6'
+# Use jquery to support bootstraps styling framework
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

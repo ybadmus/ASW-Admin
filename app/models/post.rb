@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :title, presence: true, length: { in: 5..200 }
+  validates :title, presence: true, length: { in: 5..120 }
   validates :description, presence: true
   validates :story_image, presence: true
   validates :source, presence: false

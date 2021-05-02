@@ -12,15 +12,12 @@
 */
 
 @import url("style.css");
-.card {
-    background-color: #4f4b4b;
-    height: 320px;
-}
-
 .category {
     cursor: pointer;
     position: relative;
     color: white;
+    background-color: #4f4b4b;
+    height: 320px;
 }
 
 .category {
@@ -39,4 +36,43 @@
     text-align: center;
     font-weight: 600;
     font-size: 22px;
+}
+
+.card-horizontal {
+    flex-direction: row;
+}
+
+.card-horizontal .card-image {
+    width: 300px;
+}
+
+.card-horizontal img {
+    width: 100%;
+    height: 100%;
+}
+
+.card-horizontal .card-stacked {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    color: black;
+}
+
+.card-horizontal .card-stacked .card-content {
+    flex-grow: 1;
+    padding: 20px;
+    border-radius: 0 0 2px 2px;
+}
+
+.card-horizontal .card-stacked .card-content .card-title {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.card-horizontal .card-action {
+    position: relative;
+    background-color: inherit;
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 20px;
 }

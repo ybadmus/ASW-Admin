@@ -43,7 +43,7 @@
 }
 
 .card-horizontal .card-image {
-    width: 300px;
+    width: 250px;
 }
 
 .card-horizontal img {
@@ -61,7 +61,7 @@
 
 .card-horizontal .card-stacked .card-content {
     flex-grow: 1;
-    padding: 20px;
+    padding: 15px;
     border-radius: 0 0 2px 2px;
 }
 
@@ -74,5 +74,5 @@
     position: relative;
     background-color: inherit;
     border-top: 1px solid rgba(160, 160, 160, 0.2);
-    padding: 20px;
+    padding: 10px;
 }

@@ -6,11 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @invites = Category.where(id: params[:id])
-  end
-
-  def new
-    @category = Category.new
+    @posts = Post.where(category_id: params[:id])
   end
 
   def create

@@ -5,37 +5,15 @@
     <section class="container">
       <div class="row my-5">
 
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-          <a href="">
-            <div class="card category">
-              <div class="category-name">Top News</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-          <a href="">
-            <div class="card category">
-              <div class="category-name">Latest News</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-          <a href="">
-            <div class="card category">
-              <div class="category-name">Entertainment News</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-          <a href="">
-            <div class="card category">
-              <div class="category-name">Sports News</div>
-            </div>
-          </a>
-        </div>
+        <% @categories.each do |category| %>
+          <div class="col-12 col-sm-6 col-md-4 mb-5">
+            <a href="">
+              <div class="card category">
+                <div class="category-name"><%= category.name %></div>
+              </div>
+            </a>
+          </div>
+        <% end %>
 
       </div> 
     </section>

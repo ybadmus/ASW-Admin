@@ -12,3 +12,31 @@
 */
 
 @import url("style.css");
+.card {
+    background-color: #4f4b4b;
+    height: 320px;
+}
+
+.category {
+    cursor: pointer;
+    position: relative;
+    color: white;
+}
+
+.category {
+    opacity: 0.9;
+}
+
+.category:hover {
+    opacity: 1;
+}
+
+.category .category-name {
+    position: absolute;
+    top: 35%;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+}

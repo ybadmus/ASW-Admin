@@ -9,28 +9,35 @@
     
     <section class="container">
       <div class="my-3">
+          <% @posts.each do |post| %>
+            <div class="card card-horizontal my-3">
 
-        <div class="card card-horizontal my-3">
+              <div class="card-image d-none d-md-block">
+                <%= link_to image_tag(post.story_image), post_path(post.id), class: "fadeIn" %>
+              </div>
 
-          <div class="card-image d-none d-md-block">
-            <img src="https://unsplash.it/400/300?image=503" class="fadeIn">
-          </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <%= link_to(post) do %>
+                    <h6 class="card-title"><%= post.title %></h6>
+                  <% end %>
 
-          <div class="card-stacked">
-            <div class="card-content">
-              <h6 class="card-title">Copa America: Luis Suarez from devastated United States America</h6>
-              <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
-              </p>
+                  <% if post.description.length > 300 %>
+                    <p><%= post.description.slice(0..300) %> .....</p>
+                  <% else %>
+                    <p><%= post.description %></p>
+                  <% end %>
+
+                </div>
+                <div class="card-action">
+                  <span>Author: <%= post.posted_by %></span> |
+                  <button type="button" class="btn btn-sm btn-light"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+                  <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                </div>
+              </div>
+              
             </div>
-            <div class="card-action">
-              <span>Author: Yusif Badmus</span> |
-              <button type="button" class="btn btn-sm btn-light"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
-              <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
-            </div>
-          </div>
-          
-        </div>
-
+          <% end %>
       </div>
     </section>
 

@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_05_01_181703) do
     t.string "story_image"
     t.string "detail_media"
     t.string "source"
-    t.integer "posted_by"
+    t.integer "user_id"
     t.integer "category_id"
     t.boolean "image_detail_media"
     t.datetime "created_at", precision: 6, null: false

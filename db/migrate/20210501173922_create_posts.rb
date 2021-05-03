@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :story_image
       t.string :detail_media
       t.string :source
-      t.integer :posted_by
+      t.integer :user_id
       t.integer :category_id
       t.boolean :image_detail_media
 

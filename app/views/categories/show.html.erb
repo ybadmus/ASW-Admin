@@ -33,13 +33,15 @@
 
                 </div>
                 <div class="card-action">
-                  <span>Author: <%= post.posted_by %></span> |
-                  <%= link_to edit_post_path(post.id) do %>
-                    <button type="button" class="btn btn-sm btn-light"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
-                  <% end %>
-                  <%= link_to post_path(post.id), method: :delete  do %>
-                    <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
-                  <% end %>
+                  <span><span class="font-weight-bold">author:</span> <%= post.user.email %></span>
+                  <span class=" float-right">
+                    <%= link_to edit_post_path(post) do %>
+                      <button type="button" class="btn btn-sm btn-default border border-secondary"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+                    <% end %>
+                    <%= link_to post_path(post.id), method: :delete  do %>
+                      <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                    <% end %>
+                  </span>
                 </div>
               </div>
               

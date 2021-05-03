@@ -27,7 +27,7 @@
   </div>
 
   <div class="form-group col-sm-12 px-2">
-    <%= form.label :detail_media, "Details media :", class: "control-label" %>
+    <%= form.label :detail_media, "Details media:", class: "control-label" %>
     <%= form.text_field :detail_media, class: "form-control" %>
   </div>
 
@@ -37,18 +37,18 @@
   </div>
 
   <div class="form-group col-sm-12 col-md-5 px-2">
+    <%= form.label :category_id, "Category:", class: "control-label" %>
+    <%= form.select :category_id, @categories, :selected => @category_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-sm-12 col-md-5 px-2">
     <%= form.label :source, "Source:", class: "control-label" %>
     <%= form.text_field :source, class: "form-control" %>
   </div>
 
-  <div class="form-group col-sm-12 col-md-5 px-2">
-    <%= form.label :category_id, "Category:", class: "control-label" %>
-    <%= form.number_field :category_id, :value => @category_id, class: "form-control" %>
-  </div>
-
   <div class="actions mt-5">
-    <%= link_to 'Back', posts_path %>
+    <%= link_to 'Back', category_path(@category_id), class: "btn btn-light" %>
 
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-success" %>
   </div>
 <% end %>

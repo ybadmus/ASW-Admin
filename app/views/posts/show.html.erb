@@ -30,6 +30,15 @@
         </p>
 
         <p>
+          <strong>Details media type:</strong>
+          <% if @post.image_detail_media %>
+            Picture
+          <% else %>
+            Video
+          <% end %>
+        </p>
+
+        <p>
           <strong>Source:</strong>
           <%= @post.source %>
         </p>
@@ -41,12 +50,7 @@
 
         <p>
           <strong>Category:</strong>
-          <%= @post.category_id %>
-        </p>
-
-        <p>
-          <strong>Image detail media:</strong>
-          <%= @post.image_detail_media %>
+          <%= @post.category.name %>
         </p>
 
         <%= link_to 'Edit', edit_post_path(@post) %> |

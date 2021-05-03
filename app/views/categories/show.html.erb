@@ -1,9 +1,12 @@
 <div id='content' class='p-4 p-md-5 pt-5'>
     <div class="d-flex">
+
       <h4 class="d-none d-sm-inline mr-auto"><span class='fa fa-home'></span> <%= @category.name %></h4>
       <h5 class="d-inline d-sm-none mr-auto"><span class='fa fa-home'></span> <%= @category.name %></h5>
 
-      <button type="button" class="btn btn-sm btn-success flex-end"><i class="fa fa-plus" aria-hidden="true"></i> Add News</button>
+      <%= link_to new_post_path do %>
+        <button type="button" class="btn btn-sm btn-success flex-end"><i class="fa fa-plus" aria-hidden="true"></i> Add News</button>
+      <% end %>
     </div>
     <hr />
     
@@ -31,8 +34,12 @@
                 </div>
                 <div class="card-action">
                   <span>Author: <%= post.posted_by %></span> |
-                  <button type="button" class="btn btn-sm btn-light"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
-                  <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                  <%= link_to edit_post_path(post.id) do %>
+                    <button type="button" class="btn btn-sm btn-light"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+                  <% end %>
+                  <%= link_to post_path(post.id), method: :delete  do %>
+                    <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                  <% end %>
                 </div>
               </div>
               

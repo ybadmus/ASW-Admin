@@ -10,6 +10,6 @@ class Post < ApplicationRecord
   scope :related_stories, -> { Post.where('category_id', :category_id).limit(10) }
   scope :total_no_posts, -> { Post.all.count }
 
-  belongs_to :user
+  #belongs_to :user
   belongs_to :category
 end

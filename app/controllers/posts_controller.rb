@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @category_id = request.referer.to_s.last(1)
   end
 
   # GET /posts/1/edit
@@ -25,8 +26,8 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
+        return redirect_to category_path(params[:post][:category_id]),
+                           notice: 'Post was successfully created.'
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }

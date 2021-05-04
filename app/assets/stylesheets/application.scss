@@ -108,7 +108,15 @@
 }
 
 .new_user {
-    max-width: 350px;
+    max-width: 400px;
+    margin: 5% auto;
+    padding: 30px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background: white;
+}
+
+.edit_user {
+    max-width: 600px;
     margin: 5% auto;
     padding: 30px 20px;
     border: 1px solid rgba(0, 0, 0, 0.125);

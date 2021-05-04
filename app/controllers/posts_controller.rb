@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :initialize_values
 
   # GET /posts or /posts.json
   def index
@@ -14,15 +15,11 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @category_id = request.referer.to_s.last(1)
-    @categories = [['Select category', '']]
-    Category.all.each { |item| @categories << [item.name, item.id] }
   end
 
   # GET /posts/1/edit
   def edit
     @category_id = Post.find(params[:id]).category_id
-    @categories = [['Select category', '']]
-    Category.all.each { |item| @categories << [item.name, item.id] }
   end
 
   # POST /posts or /posts.json
@@ -71,5 +68,10 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:title, :description, :story_image, :detail_media, :source, :user_id, :category_id, :image_detail_media)
+    end
+
+    def initialize_values
+      @categories = [['Select category', 0]]
+      Category.all.each { |item| @categories << [item.name, item.id] }
     end
 end

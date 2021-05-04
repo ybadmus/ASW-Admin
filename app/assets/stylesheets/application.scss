@@ -81,6 +81,10 @@
     border: 1px solid #ced4da;
 }
 
+.form-control:focus {
+    border: 2px solid #80bdff;
+}
+
 .post-form {
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
@@ -101,4 +105,20 @@
 
 .image-detail-view {
     width: 100%;
+}
+
+.new_user {
+    max-width: 350px;
+    margin: 5% auto;
+    padding: 30px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background: white;
+}
+
+.new_user a {
+    display: inline-block;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+    margin: 5px 0px 0px 0px;
 }

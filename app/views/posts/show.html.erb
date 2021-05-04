@@ -57,8 +57,8 @@
             <%= @post.category.name %>
           </p>
 
-          <%= link_to 'Back', category_path(@post.category.id), class: "btn btn-sm btn-secondary mx-2" %>
-          <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-default border border-secondary" %> 
+          <%= link_to 'Back', category_path(@post.category.id), class: "btn btn-sm btn-default border border-secondary mx-2" %>
+          <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-secondary" %> 
           
         </div>
       </div>

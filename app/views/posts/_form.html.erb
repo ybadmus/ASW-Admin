@@ -22,17 +22,17 @@
   </div>
 
   <div class="form-group col-sm-12 px-2">
-    <%= form.label :story_image, "Post Image:", class: "control-label" %>
+    <%= form.label :story_image, "Post Image:", class: "control-label" %><small class="text-dark font-weight-bold"> (Size: 700 X 500)</small>
     <%= form.text_field :story_image, class: "form-control" %>
   </div>
 
   <div class="form-group col-sm-12 px-2">
-    <%= form.label :detail_media, "Details media:", class: "control-label" %>
+    <%= form.label :detail_media, "Details media:", class: "control-label" %><small class="text-dark font-weight-bold"> (Size: 730 X 450)</small>
     <%= form.text_field :detail_media, class: "form-control" %>
   </div>
 
   <div class="form-group col-sm-12 px-2">
-    <%= form.label :image_detail_media, "Detail media type (Tick if image):", class: "control-label" %>
+    <%= form.label :image_detail_media, "Detail media type (Tick if video):", class: "control-label" %>
     <%= form.check_box :image_detail_media %>
   </div>
 

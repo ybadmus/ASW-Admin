@@ -1,44 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div id='content' class='p-4 p-md-5 pt-5'>
+    <div class="d-flex">
+      <h4 class="d-none d-sm-inline mr-auto"><span class='fa fa-home'></span> Post</h4>
+      <h5 class="d-inline d-sm-none mr-auto"><span class='fa fa-home'></span> Post</h5>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+    </div>
+    <hr />
+    
+    <section class="container">
+      <div class="row py-5 border">
+        <div class="col-12 col-lg-3">
+          <img src="<%= @post.story_image %>" class="image-detail-view">
+        </div>
+        <div class="col-12 col-lg-9 text-dark">
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+          <p>
+            <strong>Title:</strong>
+            <%= @post.title %>
+          </p>
 
-<p>
-  <strong>Story image:</strong>
-  <%= @post.story_image %>
-</p>
+          <p>
+            <strong>Description:</strong>
+            <%= @post.description %>
+          </p>
 
-<p>
-  <strong>Detail media:</strong>
-  <%= @post.detail_media %>
-</p>
+          <p>
+            <strong>Story image:</strong>
+            <%= @post.story_image %>
+          </p>
 
-<p>
-  <strong>Source:</strong>
-  <%= @post.source %>
-</p>
+          <p>
+            <strong>Detail media:</strong>
+            <%= @post.detail_media %>
+          </p>
 
-<p>
-  <strong>Posted by:</strong>
-  <%= @post.posted_by %>
-</p>
+          <p>
+            <strong>Details media type:</strong>
+            <% if @post.image_detail_media %>
+              Picture
+            <% else %>
+              Video
+            <% end %>
+          </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @post.category_id %>
-</p>
+          <p>
+            <strong>Source:</strong>
+            <%= @post.source %>
+          </p>
 
-<p>
-  <strong>Image detail media:</strong>
-  <%= @post.image_detail_media %>
-</p>
+          <p>
+            <strong>Posted by:</strong>
+            <%= @post.user.email %>
+          </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+          <p>
+            <strong>Category:</strong>
+            <%= @post.category.name %>
+          </p>
+
+          <%= link_to 'Back', category_path(@post.category.id), class: "btn btn-sm btn-default border border-secondary mx-2" %>
+          <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-secondary" %> 
+          
+        </div>
+      </div>
+    </section>
+
+</div>

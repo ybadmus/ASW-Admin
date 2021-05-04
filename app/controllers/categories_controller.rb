@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
 
@@ -14,7 +16,7 @@ class CategoriesController < ApplicationController
     @category = category_params
 
     if @category.save
-        return redirect_to root_path, notice: 'New category successfully created.'
+      redirect_to root_path, notice: 'New category successfully created.'
     else
       flash.now[:alert] = @category.errors.full_messages.first
       render :new
@@ -24,5 +26,4 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:name)
   end
-
 end

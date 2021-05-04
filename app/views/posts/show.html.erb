@@ -7,10 +7,11 @@
     <hr />
     
     <section class="container">
-      <div class="row">
-        <div class="col-md-3">
+      <div class="row py-5 border">
+        <div class="col-12 col-lg-3">
+          <img src="https://ama.gov.gh/img/fade-slider/accra-2.jpg" class="image-detail-view">
         </div>
-        <div class="my-3 col-md-9">
+        <div class="col-12 col-lg-9 text-dark">
 
           <p>
             <strong>Title:</strong>
@@ -56,8 +57,8 @@
             <%= @post.category.name %>
           </p>
 
-          <%= link_to 'Edit', edit_post_path(@post) %> |
-          <%= link_to 'Back', posts_path %>
+          <%= link_to 'Back', category_path(@post.category.id), class: "btn btn-sm btn-secondary mx-2" %>
+          <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-default border border-secondary" %> 
           
         </div>
       </div>

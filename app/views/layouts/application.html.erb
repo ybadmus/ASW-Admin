@@ -20,18 +20,15 @@
           <li class='active'>
             <a href='/'><span class='fa fa-home mr-3'></span> Home</a>
           </li>
-          <li>
-              <a href='#'><span class='fa fa-star mr-3'></span> Top News</a>
-          </li>
-          <li>
-            <a href='#'><span class='fa fa-fire mr-3'></span> Latest News</a>
-          </li>
-          <li>
-            <a href='#'><span class='fa fa-music mr-3'></span> Entertainment</a>
-          </li>
-          <li>
-            <a href='#'><span class='fa fa-futbol-o mr-3'></span> Sports</a>
-          </li>
+
+          <% loadMenus.each do |menu| %>
+            <li>
+                <%= link_to category_path(menu.id) do %>
+                  <span class='fa fa-star mr-3'></span> <%= menu.name %>
+                <% end %>
+            </li>
+          <% end %>
+
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
               <span class='fa fa-sign-out mr-3'></span> Logout

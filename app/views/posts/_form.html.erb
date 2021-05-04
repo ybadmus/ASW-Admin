@@ -1,0 +1,58 @@
+<%= form_with model: @post, :html => {:class => "form-horizontal post-form px-3 py-4"} do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group col-sm-12 px-2">
+    <%= form.label :title, "Title:", class: "control-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-sm-12 px-2">
+    <%= form.label :description, "Description:", class: "control-label" %>
+    <%= form.text_area :description, rows: 10, style: 'width:100%', class: "form-control" %>
+  </div>
+
+  <div class="form-group col-sm-12 px-2">
+    <%= form.label :story_image, "Post Image:", class: "control-label" %><small class="text-dark font-weight-bold"> (Size: 700 X 500)</small>
+    <%= form.text_field :story_image, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-sm-12 px-2">
+    <%= form.label :detail_media, "Details media:", class: "control-label" %><small class="text-dark font-weight-bold"> (Size: 730 X 450)</small>
+    <%= form.text_field :detail_media, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-sm-12 px-2">
+    <%= form.label :image_detail_media, "Detail media type (Tick if video):", class: "control-label" %>
+    <%= form.check_box :image_detail_media %>
+  </div>
+
+  <div class="form-group col-sm-12 col-md-5 px-2">
+    <%= form.label :category_id, "Category:", class: "control-label" %>
+    <%= form.select :category_id, @categories, :selected => @category_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-sm-12 col-md-5 px-2">
+    <%= form.label :source, "Source:", class: "control-label" %>
+    <%= form.text_field :source, class: "form-control" %>
+  </div>
+
+  <div class="actions mt-5">
+
+    <% if @category_id.to_i > 0  %>
+      <%= link_to 'Back', category_path(@category_id), class: "btn btn-light" %>
+    <% else %>
+      <%= link_to 'Back', categories_path, class: "btn btn-light" %>
+    <% end %>
+    <%= form.submit class: "btn btn-success" %>
+  </div>
+<% end %>

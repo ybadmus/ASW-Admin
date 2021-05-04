@@ -1,0 +1,53 @@
+<div id='content' class='p-4 p-md-5 pt-5'>
+    <p id="notice"><%= notice %></p>
+
+    <div class="d-flex">
+      <h4 class="d-none d-sm-inline mr-auto"><span class='fa fa-home'></span> Post</h4>
+      <h5 class="d-inline d-sm-none mr-auto"><span class='fa fa-home'></span> Post</h5>
+
+    </div>
+    <hr />
+    
+    <section class="container">
+      <div class="my-3">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Story image</th>
+              <th>Detail media</th>
+              <th>Source</th>
+              <th>Posted by</th>
+              <th>Category</th>
+              <th>Image detail media</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @posts.each do |post| %>
+              <tr>
+                <td><%= post.title %></td>
+                <td><%= post.description %></td>
+                <td><%= post.story_image %></td>
+                <td><%= post.detail_media %></td>
+                <td><%= post.source %></td>
+                <td><%= post.posted_by %></td>
+                <td><%= post.category_id %></td>
+                <td><%= post.image_detail_media %></td>
+                <td><%= link_to 'Show', post %></td>
+                <td><%= link_to 'Edit', edit_post_path(post) %></td>
+                <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+        <%= link_to 'New Post', new_post_path %>
+      </div>
+    </section>
+
+</div>

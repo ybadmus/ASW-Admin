@@ -1,2 +1,2 @@
 # AWS-Admin
-Admin app for administrators of https://awutusenyawatch.com 
+Admin app for administrators of https://awutusenyawatch.com

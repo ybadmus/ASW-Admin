@@ -1,0 +1,25 @@
+<div id='content' class='p-4 p-md-5 pt-5'>
+    <div class="d-flex">
+      <h4 class="d-none d-sm-block "><span class='fa fa-home'></span> Home</h4>
+      <h5 class="d-block d-sm-none"><span class='fa fa-home'></span> Home</h5>
+
+    </div>
+    <hr />
+    
+    <section class="container">
+      <div class="row my-5">
+
+        <% @categories.each do |category| %>
+          <div class="col-12 col-sm-6 col-md-4 mb-5">
+            <%= link_to(category) do %>
+              <div class="card category">
+                <div class="category-name"><%= category.name %></div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+      </div> 
+    </section>
+
+</div>

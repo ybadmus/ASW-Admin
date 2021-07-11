@@ -12,6 +12,11 @@
 */
 
 @import url("style.css");
+
+body {
+  color: black;
+}
+
 .category {
     cursor: pointer;
     position: relative;
@@ -43,7 +48,7 @@
 }
 
 .card-horizontal .card-image {
-    width: 250px;
+    max-width: 300px;
 }
 
 .card-horizontal img {
@@ -59,13 +64,13 @@
     color: black;
 }
 
-.card-horizontal .card-stacked .card-content {
+.card-content {
     flex-grow: 1;
     padding: 15px;
     border-radius: 0 0 2px 2px;
 }
 
-.card-horizontal .card-stacked .card-content .card-title {
+.card-title {
     font-size: 18px;
     font-weight: 600;
 }
@@ -88,8 +93,12 @@
 .post-form {
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
-    background-color: #fff;
+    background-color: #fbfbfb;
     background-clip: border-box;
+}
+
+.post-show {
+  background-color: #fbfbfb;
 }
 
 .post-form select {
@@ -129,4 +138,10 @@
     width: 100%;
     text-align: center;
     margin: 5px 0px 0px 0px;
+}
+
+#sidebar ul {
+  position: sticky;
+  top: 0;
+  bottom: 0;
 }

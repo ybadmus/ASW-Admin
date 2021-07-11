@@ -15,32 +15,36 @@
   <body>
     <div class="wrapper d-flex align-items-stretch">
 
-    <% if user_signed_in? %>
-      <nav id='sidebar'>
-        <h1><a href='/' class='logo'>ASW Admin</a></h1>
-        <ul class='list-unstyled components mb-5'>
-          <li class='active'>
-            <a href='/'><span class='fa fa-home mr-3'></span>Home</a>
-          </li>
-
-          <% loadMenus.each do |menu| %>
-            <li>
-                <%= link_to category_path(menu.id) do %>
-                  <span class='<%= menu.icon %> mr-3'></span><%= menu.name %>
-                <% end %>
+      <% if user_signed_in? %>
+        <nav id='sidebar'>
+          <h1><a href='/' class='logo'>ASW Admin</a></h1>
+          <ul class='list-unstyled components mb-5'>
+            <li class='active'>
+              <a href='/'><span class='fa fa-home mr-3'></span>Home</a>
             </li>
-          <% end %>
 
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <span class='fa fa-sign-out mr-3'></span>Logout
+            <% loadMenus.each do |menu| %>
+              <li>
+                  <%= link_to category_path(menu.id) do %>
+                    <span class='<%= menu.icon %> mr-3'></span><%= menu.name %>
+                  <% end %>
+              </li>
             <% end %>
-          </li>
-        </ul>
-      </nav>
-    <% end %>
 
-      <%= yield %>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <span class='fa fa-sign-out mr-3'></span>Logout
+              <% end %>
+            </li>
+          </ul>
+        </nav>
+      <% end %>
+      <div id='content' class='p-4'>
+
+        <%= yield %>
+
+      </div>
+
     </div>
 
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

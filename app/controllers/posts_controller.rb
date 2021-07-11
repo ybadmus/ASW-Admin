@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
-  before_action :initialize_values, :authenticate_user!
+  before_action :authenticate_user!
 
   # GET /posts or /posts.json
   def index
@@ -10,16 +9,21 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1 or /posts/1.json
-  def show; end
+  def show
+    @post = set_post params[:id]
+  end
 
   # GET /posts/new
   def new
     @post = Post.new
+    @categories = initialize_category
     @category_id = request.referer.to_s.last(1)
   end
 
   # GET /posts/1/edit
   def edit
+    @post = set_post params[:id]
+    @categories = initialize_category
     @category_id = Post.find(params[:id]).category_id
   end
 
@@ -40,6 +44,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+    @post = set_post params[:id]
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -53,6 +58,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
+    @post = set_post params[:id]
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
@@ -63,8 +69,10 @@ class PostsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_post
-    @post = Post.find(params[:id])
+  def set_post post_id
+    Post.find(post_id)
+  rescue
+    render json: {errors: ["Post could not be found"]}, status: 404 
   end
 
   # Only allow a list of trusted parameters through.
@@ -73,8 +81,9 @@ class PostsController < ApplicationController
                                  :image_detail_media)
   end
 
-  def initialize_values
-    @categories = [['Select category', 0]]
-    Category.all.each { |item| @categories << [item.name, item.id] }
+  def initialize_category
+    categories = [['Select category', 0]]
+    Category.all.each { |item| categories << [item.name, item.id] }
+    categories
   end
 end

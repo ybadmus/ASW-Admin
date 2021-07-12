@@ -11,7 +11,8 @@
  * It is generally better to create a new file per style scope.
 */
 
-@import url("style.css");
+
+@import "style.scss";
 
 body {
   color: black;
@@ -152,6 +153,7 @@ body {
   background-image: url('https://wallpaperaccess.com/full/2454804.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+<<<<<<< HEAD
 }
 
 p { 
@@ -164,3 +166,7 @@ p {
     padding-left: 2px;
   }
 }
+=======
+
+}
+>>>>>>> 7255109517fd1fc3885c3ba6b02289367570a240

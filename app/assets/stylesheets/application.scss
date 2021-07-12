@@ -15,6 +15,7 @@
 
 body {
   color: black;
+  height: 100vh;
 }
 
 .category {
@@ -47,12 +48,8 @@ body {
     flex-direction: row;
 }
 
-.card-horizontal .card-image {
-    max-width: 300px;
-}
-
 .card-horizontal img {
-    width: 100%;
+    max-width: 300px;
     height: 100%;
 }
 
@@ -62,6 +59,7 @@ body {
     flex: 1;
     position: relative;
     color: black;
+    background: #fbfbfb
 }
 
 .card-content {
@@ -116,20 +114,13 @@ body {
     width: 100%;
 }
 
-.new_user {
+.new_user, .edit_user {
     max-width: 400px;
     margin: 5% auto;
     padding: 30px 20px;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    background: white;
-}
-
-.edit_user {
-    max-width: 600px;
-    margin: 5% auto;
-    padding: 30px 20px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    background: white;
+    background-color: #fbfbfb;
+    border-radius: 5px;
 }
 
 .new_user a {
@@ -154,4 +145,10 @@ body {
   background-color: rgba(0, 0, 0, 0.125);
   color: red;
   border-bottom: 1px solid #606060
+}
+
+.user_logged_out {
+  background-image: url('https://img.wallpapersafari.com/desktop/1920/1080/19/10/XILBcC.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }

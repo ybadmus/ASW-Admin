@@ -12,6 +12,12 @@
 */
 
 @import url("style.css");
+
+body {
+  color: black;
+  height: 100vh;
+}
+
 .category {
     cursor: pointer;
     position: relative;
@@ -42,12 +48,8 @@
     flex-direction: row;
 }
 
-.card-horizontal .card-image {
-    width: 250px;
-}
-
 .card-horizontal img {
-    width: 100%;
+    max-width: 300px;
     height: 100%;
 }
 
@@ -57,15 +59,16 @@
     flex: 1;
     position: relative;
     color: black;
+    background: #fbfbfb
 }
 
-.card-horizontal .card-stacked .card-content {
+.card-content {
     flex-grow: 1;
     padding: 15px;
     border-radius: 0 0 2px 2px;
 }
 
-.card-horizontal .card-stacked .card-content .card-title {
+.card-title {
     font-size: 18px;
     font-weight: 600;
 }
@@ -88,8 +91,12 @@
 .post-form {
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
-    background-color: #fff;
+    background-color: #fbfbfb;
     background-clip: border-box;
+}
+
+.post-show {
+  background-color: #fbfbfb;
 }
 
 .post-form select {
@@ -107,20 +114,13 @@
     width: 100%;
 }
 
-.new_user {
+.new_user, .edit_user {
     max-width: 400px;
     margin: 5% auto;
     padding: 30px 20px;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    background: white;
-}
-
-.edit_user {
-    max-width: 600px;
-    margin: 5% auto;
-    padding: 30px 20px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    background: white;
+    background-color: #fbfbfb;
+    border-radius: 5px;
 }
 
 .new_user a {
@@ -129,4 +129,26 @@
     width: 100%;
     text-align: center;
     margin: 5px 0px 0px 0px;
+}
+
+#sidebar ul {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+}
+
+#sidebar ul .logout_button {
+  color: #f55;
+}
+
+#sidebar ul .logout_button:hover {
+  background-color: #f55;
+  color: #fff;
+  border-bottom: 1px solid #606060
+}
+
+.user_logged_out {
+  background-image: url('https://img.wallpapersafari.com/desktop/1920/1080/19/10/XILBcC.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }

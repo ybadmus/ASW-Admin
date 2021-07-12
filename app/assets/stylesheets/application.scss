@@ -145,3 +145,13 @@ body {
   top: 0;
   bottom: 0;
 }
+
+#sidebar ul .logout_button {
+  color: red;
+}
+
+#sidebar ul .logout_button:hover {
+  background-color: rgba(0, 0, 0, 0.125);
+  color: red;
+  border-bottom: 1px solid #606060
+}

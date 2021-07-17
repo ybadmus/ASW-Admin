@@ -47,11 +47,12 @@ body {
 
 .card-horizontal {
     flex-direction: row;
+    height: 210px;
 }
 
 .card-horizontal img {
     max-width: 300px;
-    height: 210px;
+    height: 208px;
 }
 
 .card-horizontal .card-stacked {
@@ -67,6 +68,11 @@ body {
     flex-grow: 1;
     padding: 15px;
     border-radius: 0 0 2px 2px;
+    height: 156px;
+}
+
+.card-content p {
+  margin-bottom: 0;
 }
 
 .card-title {

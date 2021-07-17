@@ -8,8 +8,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @posts = Post.where(category_id: params[:id])
-    @category = Category.find(params[:id])
+    @posts = Post.where(category_id: params[:id]).includes(:user)
+    @category_name = Category.find(params[:id]).name
   end
 
   def create

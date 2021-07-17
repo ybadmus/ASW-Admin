@@ -17,14 +17,14 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @categories = initialize_category
-    @category_id = request.referer.to_s.last(1)
+    @category_id = request.referer.last(1).to_i
   end
 
   # GET /posts/1/edit
   def edit
     @post = set_post params[:id]
     @categories = initialize_category
-    @category_id = Post.find(params[:id]).category_id
+    @category_id = @post.category.id
   end
 
   # POST /posts or /posts.json
@@ -36,6 +36,8 @@ class PostsController < ApplicationController
         return redirect_to category_path(params[:post][:category_id]),
                            notice: 'Post was successfully created.'
       else
+        @categories = initialize_category
+        @category_id = @post.category.id
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -50,6 +52,8 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
+        @categories = initialize_category
+        @category_id = @post.category.id
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end

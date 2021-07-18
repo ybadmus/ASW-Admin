@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class API::V1::CategoriesController < ApplicationController
 
   def index
     render json: Category.all
@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   private 
     
     def set_post id
-      Category.find(id).includes(:posts)
+      Category.find(id)
     rescue
       render json: {errors: ["Post could not be found"]}, status: 404 
     end

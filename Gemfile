@@ -61,3 +61,5 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'active_model_serializers', '~> 0.10.2'
+
+gem 'kaminari', '~> 0.16.3'

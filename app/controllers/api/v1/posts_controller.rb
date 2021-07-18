@@ -1,4 +1,4 @@
-class API::V1:PostsController < ActionController::API
+class API::V1::PostsController < ActionController::API
 
   def index
     @posts = Post.includes(:user).all
@@ -7,7 +7,7 @@ class API::V1:PostsController < ActionController::API
 
   def show
     @post = set_post params[:id]
-    render json:  @post
+    render json:  @post, serializer: PostSerializer
   end
 
   private 

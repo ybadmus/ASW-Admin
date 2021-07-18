@@ -7,7 +7,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.text :description
       t.string :story_image
       t.string :detail_media
-      t.string :source
+      t.string :source, default: 'ASW'
       t.integer :user_id
       t.integer :category_id
       t.boolean :image_detail_media

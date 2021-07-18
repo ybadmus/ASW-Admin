@@ -1,71 +1,63 @@
-    <div class="d-flex">
-    
-      <h5 class="d-none d-sm-inline mr-auto"><span class='fa fa-home'></span> Post</h5>
-      <h6 class="d-inline d-sm-none mr-auto"><span class='fa fa-home'></span> Post</h6>
-
+<section class="container mt-3">
+  <div class="row py-5 border post-show">
+    <div class="col-12 col-lg-3">
+      <img src="<%= @post.story_image %>" class="image-detail-view">
     </div>
-    <hr />
-    
-    <section class="container">
-      <div class="row py-5 border post-show">
-        <div class="col-12 col-lg-3">
-          <img src="<%= @post.story_image %>" class="image-detail-view">
-        </div>
 
-        <div class="col-12 col-lg-9 text-dark">
+    <div class="col-12 col-lg-9 text-dark">
 
-          <p>
-            <strong>Title:</strong>
-            <%= @post.title %>
-          </p>
+      <p>
+        <strong>Title:</strong>
+        <%= @post.title %>
+      </p>
 
-          <p>
-            <strong>Description:</strong>
-            <%= @post.description %>
-          </p>
+      <p>
+        <strong>Description:</strong>
+        <%= @post.description %>
+      </p>
 
-          <p>
-            <strong>Story image:</strong>
-            <%= @post.story_image %>
-          </p>
+      <p>
+        <strong>Story image:</strong>
+        <%= @post.story_image %>
+      </p>
 
-          <p>
-            <strong>Detail media:</strong>
-            <%= @post.detail_media %>
-          </p>
+      <p>
+        <strong>Detail media:</strong>
+        <%= @post.detail_media %>
+      </p>
 
-          <p>
-            <strong>Details media type:</strong>
-            <% if @post.image_detail_media %>
-              Picture
-            <% else %>
-              Video
-            <% end %>
-          </p>
+      <p>
+        <strong>Details media type:</strong>
+        <% if @post.image_detail_media %>
+          Picture
+        <% else %>
+          Video
+        <% end %>
+      </p>
 
-          <p>
-            <strong>Source:</strong>
-            <%= @post.source %>
-          </p>
+      <p>
+        <strong>Source:</strong>
+        <%= @post.source %>
+      </p>
 
-          <p>
-            <strong>Posted by:</strong>
-            <%= @post.user.username %>
-          </p>
+      <p>
+        <strong>Posted by:</strong>
+        <%= @post.user.username %>
+      </p>
 
-          <p>
-            <strong>Category:</strong>
-            <%= @post.category.name %>
-          </p>
+      <p>
+        <strong>Category:</strong>
+        <%= @post.category.name %>
+      </p>
 
-          <%= link_to category_path(@post.category.id) do %>
-            <button type="button" class="btn btn-sm btn-default border"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back</button>
-          <% end %>
+      <%= link_to category_path(@post.category.id) do %>
+        <button type="button" class="btn btn-sm btn-default border"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back</button>
+      <% end %>
 
-          <%= link_to edit_post_path(@post) do %> 
-            <button type="button" class="btn btn-sm btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
-          <% end %>
-          
-        </div>
-      </div>
-    </section>
+      <%= link_to edit_post_path(@post) do %> 
+        <button type="button" class="btn btn-sm btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+      <% end %>
+      
+    </div>
+  </div>
+</section>

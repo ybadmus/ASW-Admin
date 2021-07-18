@@ -19,6 +19,11 @@ body {
   height: 100vh;
 }
 
+.content-header h5, h6 {
+  font-weight: 600;
+  padding-top: 5px;
+}
+
 .category {
     cursor: pointer;
     position: relative;

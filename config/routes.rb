@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       end
 
       resources :posts
+      resources :newsletters, only: %i[create]
     end
   end
 

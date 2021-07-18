@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = category_params
+    @category = Category.new(category_params)
 
     if @category.save
       redirect_to root_path, notice: 'New category successfully created.'

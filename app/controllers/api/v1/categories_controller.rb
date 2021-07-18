@@ -1,19 +1,21 @@
-class API::V1::CategoriesController < ApiController
+class API::V1::CategoriesController < API::V1::APIController
 
   def index
     render json: Category.all
   end
 
   def show
-    category = set_post params[:id]
-    render json: category
+    posts = load_category_post params[:id], params[:page] || 1
+    render json: posts, each_serializer: PostsSerializer
+    set_pagination_headers posts
   end
 
   private 
     
-    def set_post id
-      Category.find(id)
+    def load_category_post id, page_no
+      Post.where(category_id: id).page(page_no)
     rescue
       render json: {errors: ["Post could not be found"]}, status: 404 
     end
+
 end

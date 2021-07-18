@@ -1,4 +1,4 @@
-class ApiController < ActionController::API
+class API::V1::APIController < ActionController::API
   
   def set_pagination_headers(pc)
     headers["X-Total-Count"] = pc.total_count

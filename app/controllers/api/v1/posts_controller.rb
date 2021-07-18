@@ -1,4 +1,4 @@
-class API::V1::PostsController < ApiController
+class API::V1::PostsController < API::V1::APIController
 
   def index
     posts = load_posts params[:category_id], params[:page] || 1

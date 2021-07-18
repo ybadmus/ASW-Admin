@@ -30,14 +30,14 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    @categories = initialize_category
+    @category_id = @post.category.id
 
     respond_to do |format|
       if @post.save
         return redirect_to category_path(params[:post][:category_id]),
                            notice: 'Post was successfully created.'
       else
-        @categories = initialize_category
-        @category_id = @post.category.id
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -47,13 +47,14 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
     @post = set_post params[:id]
+    @categories = initialize_category
+    @category_id = @post.category.id
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
-        @categories = initialize_category
-        @category_id = @post.category.id
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end

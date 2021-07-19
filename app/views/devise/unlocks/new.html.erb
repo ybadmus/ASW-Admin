@@ -1,8 +1,6 @@
   <section class="container h-100">
 
     <h2>Resend unlock instructions</h2>
-    <hr />
-
 
     <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post },  class: 'my-5 bg-light') do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>

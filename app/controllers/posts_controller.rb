@@ -17,19 +17,21 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @categories = initialize_category
-    @category_id = request.referer.to_s.last(1)
+    @category_id = request.referer.last(1).to_i
   end
 
   # GET /posts/1/edit
   def edit
     @post = set_post params[:id]
     @categories = initialize_category
-    @category_id = Post.find(params[:id]).category_id
+    @category_id = @post.category.id
   end
 
   # POST /posts or /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    @categories = initialize_category
+    @category_id = @post.category.id
 
     respond_to do |format|
       if @post.save
@@ -37,7 +39,6 @@ class PostsController < ApplicationController
                            notice: 'Post was successfully created.'
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,13 +46,14 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
     @post = set_post params[:id]
+    @categories = initialize_category
+    @category_id = @post.category.id
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,7 +64,6 @@ class PostsController < ApplicationController
     @post.destroy
     respond_to do |format|
       format.html { redirect_to request.referer, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

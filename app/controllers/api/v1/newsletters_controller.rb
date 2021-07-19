@@ -6,7 +6,7 @@ class API::V1::NewslettersController < API::V1::APIController
     if subscriber.save
       render json: "User successfully added to subscribers list."
     else
-      render json: "An error occurred, please try again later"
+      render json: subscriber.errors.full_messages
     end
   end
 

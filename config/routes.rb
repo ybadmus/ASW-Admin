@@ -10,10 +10,14 @@ Rails.application.routes.draw do
   namespace :api, :defaults => {:format => :json} do
     namespace :v1 do
       resources :categories do
-        resources :posts
+        resources :posts 
       end
 
-      resources :posts
+      resources :posts do
+        collection do
+          get :top_news
+        end
+      end
       resources :newsletters, only: %i[create]
     end
   end

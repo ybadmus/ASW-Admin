@@ -11,6 +11,11 @@ class API::V1::PostsController < API::V1::APIController
     render json: post, serializer: PostSerializer
   end
 
+  def top_news
+    top_news = load_top_news
+    render json: top_news, each_serializer: PostsSerializer
+  end
+
   private 
 
     def set_post id
@@ -25,6 +30,10 @@ class API::V1::PostsController < API::V1::APIController
       else
         Post.where(category_id: category_id).page(page_no)
       end
+    end
+
+    def load_top_news
+      Post.where(category_id: Category.find_by(name: "Top News").id).limit(8)
     end
 
 end

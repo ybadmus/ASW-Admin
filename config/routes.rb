@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         collection do
           get :top_news
           get :latest_news_only
+          get :entertainment_news_only
         end
       end
       resources :newsletters, only: %i[create]

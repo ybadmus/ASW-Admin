@@ -22,6 +22,8 @@ class API::V1::PostsController < API::V1::APIController
   end
 
   def entertainment_news_only
+    entertainment_news = load_entertainment_news params[:page] || 1, params[:pageSize] || 25
+    render json: entertainment_news, each_serializer: PostsSerializer
   end
 
   private 
@@ -42,6 +44,10 @@ class API::V1::PostsController < API::V1::APIController
 
     def load_latest_news page_no, page_size
       Post.includes(:user).where(category_id: Category.find_by(name: "Latest News").id).page(page_no).per(page_size)
+    end
+
+    def load_entertainment_news page_no, page_size
+      Post.includes(:user).where(category_id: Category.find_by(name: "Entertainment").id).page(page_no).per(page_size)
     end
 
     def load_top_news

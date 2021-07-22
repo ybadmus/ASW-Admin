@@ -1,8 +1,7 @@
 class ContactUsMailer < ApplicationMailer
-  default from: 'yusif.badmus@gmail.com'
 
-  def new_mail(obj)
-    @enquiry = obj
+  def new_email
+    @enquiry = params[:enquiry]
     mail(to: "yusif.badmus@gmail.com", subject: "You've got an enquiry on ASW")
   end
 end

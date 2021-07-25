@@ -2,7 +2,12 @@ class API::V1::EnquiriesController < API::V1::APIController
 
   def create
     enquiry = Enquiry.new(enquiry_params)
-    ContactUsMailer.with(enquiry: enquiry).new_email.deliver_now
+    begin
+      ContactUsMailer.with(enquiry: enquiry).new_email.deliver_now
+    rescue StandardError => e
+      render :json, status: 500 
+    end
+    render :json, json: {message: ""}, status: 200 
   end
 
   private

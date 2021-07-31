@@ -13,7 +13,6 @@ class Post < ApplicationRecord
   belongs_to :category
 
   def related_stories
-    stories = category.posts.where(category_id: category_id).order(created_at: :desc).reject{ |n| n === self }
-    stories.take(6)
+    category.posts.order("RANDOM()").reject{ |n| n === self }.take(6)
   end
 end

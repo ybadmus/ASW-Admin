@@ -26,6 +26,10 @@ class API::V1::PostsController < API::V1::APIController
     render json: entertainment_news, each_serializer: PostsSerializer
   end
 
+  def trending
+    render json: load_trending, each_serializer: PostsSerializer
+  end
+
   private 
 
     def set_post id
@@ -52,6 +56,10 @@ class API::V1::PostsController < API::V1::APIController
 
     def load_top_news
       Post.includes(:user).where(category_id: Category.find_by(name: "Top News").id).limit(8)
+    end
+
+    def load_trending
+      Post.where(trending: true)
     end
 
 end

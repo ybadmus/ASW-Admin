@@ -13,6 +13,6 @@ class Post < ApplicationRecord
   belongs_to :category
 
   def related_stories
-    category.posts.where(category_id: category_id).limit(10)
+    category.posts.where(category_id: category_id).limit(6).reject{ |n| n === self }
   end
 end

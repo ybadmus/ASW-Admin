@@ -10,7 +10,7 @@ class PostsSerializer < ActiveModel::Serializer
   end
 
   def description
-    object.description.slice(0...220)
+    object.description.slice(0...200)
   end
 
   def date

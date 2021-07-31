@@ -15,4 +15,15 @@ class Post < ApplicationRecord
   def related_stories
     category.posts.order("RANDOM()").reject{ |n| n === self }.take(6)
   end
+
+  def next
+    return self.class.where("id > ?", id).first unless self === Post.last
+    Post.first
+  end
+
+  def previous
+    self.class.where("id < ?", id).last unless self === Post.first
+    Post.last
+  end
+
 end

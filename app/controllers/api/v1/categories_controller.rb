@@ -1,7 +1,7 @@
 class API::V1::CategoriesController < API::V1::APIController
 
   def index
-    render json: Category.all
+    render json: Category.where(active: true).all
   end
 
   def show

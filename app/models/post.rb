@@ -3,6 +3,7 @@
 class Post < ApplicationRecord
   
   default_scope { order(updated_at: :desc) }
+  #default_scope { where(active: true) }
 
   validates :title, presence: true, length: { in: 5..100 }
   validates :description, presence: true

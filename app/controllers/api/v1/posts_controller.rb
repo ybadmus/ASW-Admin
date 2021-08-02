@@ -40,22 +40,22 @@ class API::V1::PostsController < API::V1::APIController
 
     def load_posts category_id, page_no, page_size
       if category_id.nil?
-        Post.includes(:user).page(page_no).per(page_size)
+        Post.where(active: true).includes(:user, :category).page(page_no).per(page_size)
       else
-        Post.includes(:user).where(category_id: category_id).page(page_no).per(page_size)
+        Post.where(active: true).includes(:user, :category).where(category_id: category_id).page(page_no).per(page_size)
       end
     end
 
     def load_latest_news page_no, page_size
-      Post.includes(:user).where(category_id: Category.find_by(name: "Latest News").id).page(page_no).per(page_size)
+      Post.where(active: true).where(category_id: Category.find_by(name: "Latest News").id).includes(:user, :category).page(page_no).per(page_size)
     end
 
     def load_entertainment_news page_no, page_size
-      Post.includes(:user).where(category_id: Category.find_by(name: "Entertainment").id).page(page_no).per(page_size)
+      Post.where(category_id: Category.find_by(name: "Entertainment").id).includes(:user, :category).page(page_no).per(page_size)
     end
 
     def load_top_news
-      Post.includes(:user).where(category_id: Category.find_by(name: "Top News").id).limit(8)
+      Post.where(category_id: Category.find_by(name: "Top News").id).includes(:user, :category).limit(8)
     end
 
     def load_trending

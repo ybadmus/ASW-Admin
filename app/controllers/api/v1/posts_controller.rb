@@ -55,10 +55,11 @@ class API::V1::PostsController < API::V1::APIController
     end
 
     def load_top_news
-      Post.where(category_id: Category.find_by(name: "Top News").id).includes(:user, :category).limit(8)
+      Post.where(category_id: Category.find_by(name: "Top News").id).includes(:user, :category).limit(10)
     end
 
     def load_trending
+      #Add date constraint here ..
       Post.where(trending: true)
     end
 

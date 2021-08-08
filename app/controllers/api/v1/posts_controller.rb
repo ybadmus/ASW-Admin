@@ -1,7 +1,7 @@
 class API::V1::PostsController < API::V1::APIController
 
   def index
-    posts = load_posts params[:category_id], params[:page] || 1, params[:pageSize] || 10
+    posts = load_posts params[:category_id], params[:page], params[:pageSize]
     render json: posts, each_serializer: PostsSerializer
     set_pagination_headers posts
   end
@@ -17,12 +17,12 @@ class API::V1::PostsController < API::V1::APIController
   end
 
   def latest_news_only
-    lastest_news = load_latest_news params[:page] || 1, params[:pageSize] || 25
+    lastest_news = load_latest_news params[:page], params[:pageSize]
     render json: lastest_news, each_serializer: PostsSerializer
   end
 
   def entertainment_news_only
-    entertainment_news = load_entertainment_news params[:page] || 1, params[:pageSize] || 25
+    entertainment_news = load_entertainment_news params[:page], params[:pageSize]
     render json: entertainment_news, each_serializer: PostsSerializer
   end
 

@@ -12,7 +12,7 @@ class API::V1::PostsController < API::V1::APIController
   end
 
   def top_news
-    top_news = load_top_news
+    top_news = load_top_news params[:page], params[:pageSize]
     render json: top_news, each_serializer: PostsSerializer
   end
 

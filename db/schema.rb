@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_015202) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "trending", default: false
-    t.boolean "active", default: false
+    t.boolean "active", default: true
   end
 
   create_table "users", force: :cascade do |t|

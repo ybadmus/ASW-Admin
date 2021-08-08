@@ -5,9 +5,9 @@ class API::V1::EnquiriesController < API::V1::APIController
     begin
       ContactUsMailer.with(enquiry: enquiry).new_email.deliver_now
     rescue StandardError => e
-      render :json, status: 500 
+      return render :json, json: {message: "Error occured whiles sending enquiry, please try again"}, status: 500 
     end
-    render :json, json: {message: ""}, status: 200 
+    render :json, json: {message: "Enquiry sucessfully sent to ASW"}, status: 200 
   end
 
   private

@@ -4,7 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>From, <%= @enquiry.name %></h1>
+    <p>
+      From: <%= @enquiry.name %>.<br>
+    </p>
     <p>
       Subject: <%= @enquiry.subject %>.<br>
     </p>
@@ -14,10 +16,11 @@
     <p>
       Phone: <%= @enquiry.phone %>.<br>
     </p>
-    <br />
     <p>
       Message: <%= @enquiry.message %>.<br>
     </p>
-    <p>Powered by: Milkway Technologies Limited!</p>
+    <p>
+      Powered by: Milkway Technologies Limited!
+    </p>
   </body>
 </html>

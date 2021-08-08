@@ -16,8 +16,8 @@ Rails.application.routes.draw do
       resources :posts do
         collection do
           get :top_news
-          get :latest_news_only
-          get :entertainment_news_only
+          get :latest_news
+          get :entertainment_news
           get :trending
         end
       end

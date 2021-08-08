@@ -16,18 +16,21 @@ class API::V1::PostsController < API::V1::APIController
     render json: top_news, each_serializer: PostsSerializer
   end
 
-  def latest_news_only
-    lastest_news = load_latest_news params[:page], params[:pageSize]
-    render json: lastest_news, each_serializer: PostsSerializer
+  def latest_news
+    news = load_latest_news params[:page], params[:pageSize]
+    render json: news, each_serializer: PostsSerializer
+    set_pagination_headers news
   end
 
-  def entertainment_news_only
-    entertainment_news = load_entertainment_news params[:page], params[:pageSize]
-    render json: entertainment_news, each_serializer: PostsSerializer
+  def entertainment_news
+    news = load_entertainment_news params[:page], params[:pageSize]
+    render json: news, each_serializer: PostsSerializer
+    set_pagination_headers news
   end
 
   def trending
-    render json: load_trending, each_serializer: PostsSerializer
+    trending = load_trending params[:page], params[:pageSize]
+    render json: trending, each_serializer: PostsSerializer
   end
 
   private 
@@ -54,13 +57,13 @@ class API::V1::PostsController < API::V1::APIController
       Post.where(category_id: Category.find_by(name: "Entertainment").id).includes(:user, :category).page(page_no).per(page_size)
     end
 
-    def load_top_news
-      Post.where(category_id: Category.find_by(name: "Top News").id).includes(:user, :category).limit(10)
+    def load_top_news page_no, page_size
+      Post.where(category_id: Category.find_by(name: "Top News").id).includes(:user, :category).page(page_no).per(page_size)
     end
 
-    def load_trending
+    def load_trending page_no, page_size
       #Add date constraint here ..
-      Post.where(trending: true)
+      Post.where(trending: true).page(page_no).per(page_size)
     end
 
 end

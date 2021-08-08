@@ -1,7 +1,7 @@
 class API::V1::PostsController < API::V1::APIController
 
   def index
-    posts = load_posts params[:category_id], params[:page] || 1, params[:pageSize] || 25
+    posts = load_posts params[:category_id], params[:page] || 1, params[:pageSize] || 10
     render json: posts, each_serializer: PostsSerializer
     set_pagination_headers posts
   end

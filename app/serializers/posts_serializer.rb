@@ -1,8 +1,8 @@
 class PostsSerializer < ActiveModel::Serializer
-  attributes :id, :title, :image, :description, :date, :posted_by,
+  attributes :id, :title, :image, :description, :date, :category,
 
-  def posted_by
-    object.user.username
+  def category
+    object.category.name
   end
 
   def image
@@ -10,11 +10,11 @@ class PostsSerializer < ActiveModel::Serializer
   end
 
   def description
-    object.description.slice(0...250)
+    object.description.slice(0...200)
   end
 
   def date
-    object.updated_at
+    "#{object.updated_at.strftime('%F')} #{object.updated_at.strftime('%I:%M %p')}"
   end
 
 end

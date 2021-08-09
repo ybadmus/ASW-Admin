@@ -1,11 +1,11 @@
 class API::V1::CategoriesController < API::V1::APIController
 
   def index
-    render json: Category.all
+    render json: Category.where(active: true).all
   end
 
   def show
-    posts = load_category_post params[:id], params[:page] || 1
+    posts = load_category_post params[:id], params[:page]
     render json: posts, each_serializer: PostsSerializer
     set_pagination_headers posts
   end

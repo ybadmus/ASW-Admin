@@ -8,12 +8,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @posts = Post.where(category_id: params[:id])
-    @category = Category.find(params[:id])
+    @posts = Post.where(category_id: params[:id]).includes(:user, :category)
+    @category_name = Category.find(params[:id]).name
   end
 
   def create
-    @category = category_params
+    @category = Category.new(category_params)
 
     if @category.save
       redirect_to root_path, notice: 'New category successfully created.'

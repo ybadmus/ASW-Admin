@@ -11,7 +11,19 @@
  * It is generally better to create a new file per style scope.
 */
 
+
 @import "style.scss";
+
+body {
+  color: black;
+  height: 100vh;
+}
+
+.content-header h5, h6 {
+  font-weight: 600;
+  padding-top: 5px;
+}
+
 .category {
     cursor: pointer;
     position: relative;
@@ -42,8 +54,12 @@
     flex-direction: row;
 }
 
+.card-image {
+  max-width: 250px;
+}
+
 .card-horizontal img {
-    max-width: 300px;
+    width: 100%;
     height: 100%;
 }
 
@@ -60,6 +76,10 @@
     flex-grow: 1;
     padding: 15px;
     border-radius: 0 0 2px 2px;
+}
+
+.card-content p {
+  margin-bottom: 0;
 }
 
 .card-title {
@@ -141,8 +161,29 @@
   border-bottom: 1px solid #606060
 }
 
-.user_logged_out {
-  background-image: url('https://img.wallpapersafari.com/desktop/1920/1080/19/10/XILBcC.jpg');
+.user_logged_out { 
+  height: 100vh;
+  background-image: url('https://wallpaperaccess.com/full/2454804.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+<<<<<<< HEAD
 }
+=======
+}
+
+p { 
+  word-break: break-all 
+}
+
+#error_explanation h2 {
+  font-size: 1em;
+  color: red;
+}
+
+@media (max-width: 991.98px) {
+  .container {
+    padding-right: 2px;
+    padding-left: 2px;
+  }
+}
+>>>>>>> dde3d8a9c802a1d65a4302e4d8f977a8bb95e62c

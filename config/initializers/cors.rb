@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://awutusenyawatch.com'
+    origins 'https://awutusenyawatch.com','https://www.awutusenyawatch.com'
 
     resource '/*',
       headers: :any,

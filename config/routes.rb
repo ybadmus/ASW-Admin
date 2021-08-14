@@ -10,11 +10,19 @@ Rails.application.routes.draw do
   namespace :api, :defaults => {:format => :json} do
     namespace :v1 do
       resources :categories do
-        resources :posts
+        resources :posts 
       end
 
-      resources :posts
+      resources :posts do
+        collection do
+          get :top_news
+          get :latest_news
+          get :entertainment_news
+          get :trending
+        end
+      end
       resources :newsletters, only: %i[create]
+      resources :enquiries, only: %i[create]
     end
   end
 

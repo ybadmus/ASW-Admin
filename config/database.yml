@@ -23,9 +23,9 @@ default: &default
 
 development:
   <<: *default
-  database: asw_admin_development
-  username: postgres
-  password: BB.Inc_3
+  database: <%= Rails.application.credentials[Rails.env.to_sym][:database][:name] %>
+  username: <%= Rails.application.credentials[Rails.env.to_sym][:database][:username] %>
+  password: <%= Rails.application.credentials[Rails.env.to_sym][:database][:password] %>
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -58,7 +58,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: asw_admin_test
+  database: <%= Rails.application.credentials[Rails.env.to_sym][:database][:name] %>
+  username: <%= Rails.application.credentials[Rails.env.to_sym][:database][:username] %>
+  password: <%= Rails.application.credentials[Rails.env.to_sym][:database][:password] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -82,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: asw_admin_production
-  username: 'postgres'
-  password: 'BB.Inc_3'
+  database: <%= Rails.application.credentials[Rails.env.to_sym][:database][:name] %>
+  username: <%= Rails.application.credentials[Rails.env.to_sym][:database][:username] %>
+  password: <%= Rails.application.credentials[Rails.env.to_sym][:database][:password] %>

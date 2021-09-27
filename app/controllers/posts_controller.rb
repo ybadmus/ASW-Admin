@@ -82,7 +82,7 @@ class PostsController < ApplicationController
                                  :image_detail_media)
   end
 
-  def initialize_category
+  def  
     categories = [['Select category', 0]]
     Category.all.each { |item| categories << [item.name, item.id] }
     categories

@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @categories = initialize_category
-    @category_id = request.referer.last(1).to_i
+    @category_id = request&.referer&.last(1)&.to_i
   end
 
   # GET /posts/1/edit
@@ -82,7 +82,7 @@ class PostsController < ApplicationController
                                  :image_detail_media)
   end
 
-  def  
+  def initialize_category
     categories = [['Select category', 0]]
     Category.all.each { |item| categories << [item.name, item.id] }
     categories

@@ -5,8 +5,10 @@ class Post < ApplicationRecord
   default_scope { order(updated_at: :desc) }
   #default_scope { where(active: true) }
 
-  validates :title, presence: true, length: { in: 5..100 }
-  validates :description, presence: true
+  #validates :description, presence: true
+  has_rich_text :description
+
+  validates :title, presence: true
   validates :story_image, presence: true
   validates :source, presence: true
   validates :user_id, presence: true

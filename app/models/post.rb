@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  
   default_scope { order(updated_at: :desc) }
-  #default_scope { where(active: true) }
+  # default_scope { where(active: true) }
 
-  #validates :description, presence: true
+  # validates :description, presence: true
   has_rich_text :description
 
   validates :title, presence: true
@@ -19,17 +18,18 @@ class Post < ApplicationRecord
   belongs_to :category
 
   def related_stories
-    category.posts.order("RANDOM()").reject{ |n| n === self }.take(6)
+    category.posts.order('RANDOM()').reject { |n| n === self }.take(6)
   end
 
   def next
     return self.class.unscoped.first if self === self.class.unscoped.last
-    self.class.where("id > ?", id).first 
+
+    self.class.where('id > ?', id).first
   end
 
   def previous
     return self.class.unscoped.last if self === self.class.unscoped.first
-    self.class.where("id < ?", id).last 
-  end
 
+    self.class.where('id < ?', id).last
+  end
 end

@@ -70,10 +70,10 @@ class PostsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_post post_id
+  def set_post(post_id)
     Post.find(post_id)
-  rescue
-    render json: {errors: ["Post could not be found"]}, status: 404 
+  rescue StandardError
+    render json: { errors: ['Post could not be found'] }, status: 404
   end
 
   # Only allow a list of trusted parameters through.

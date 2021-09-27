@@ -178,12 +178,13 @@ p {
     color: red;
 }
 
-#trix-toolbar-1 {
+.trix-button-row {
     margin-bottom: 2px;
 }
 
 #post_description {
-    height: 220px;
+    height: 250px;
+    overflow-y: scroll;
 }
 
 @media (max-width: 991.98px) {

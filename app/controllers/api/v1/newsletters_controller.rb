@@ -1,18 +1,23 @@
-class API::V1::NewslettersController < API::V1::APIController
+# frozen_string_literal: true
 
-  def create
-    subscriber = Newsletter.new(subscriber_params)
+module API
+  module V1
+    class NewslettersController < API::V1::APIController
+      def create
+        subscriber = Newsletter.new(subscriber_params)
 
-    if subscriber.save
-      render json: "User successfully added to subscribers list."
-    else
-      render json: subscriber.errors.full_messages
+        if subscriber.save
+          render json: 'User successfully added to subscribers list.'
+        else
+          render json: subscriber.errors.full_messages
+        end
+      end
+
+      private
+
+      def subscriber_params
+        params.require(:newsletter).permit(:ip_address, :email_address)
+      end
     end
   end
-
-  private
-
-    def subscriber_params
-      params.require(:newsletter).permit(:ip_address, :email_address)
-    end
 end

@@ -4,15 +4,9 @@ class Post < ApplicationRecord
   default_scope { order(updated_at: :desc) }
   # default_scope { where(active: true) }
 
-  # validates :description, presence: true
   has_rich_text :description
 
-  validates :title, presence: true
-  validates :story_image, presence: true
-  validates :source, presence: true
-  validates :user_id, presence: true
-  validates :category_id, presence: true
-  validates :image_detail_media, presence: false
+  validates :title, :story_image, :source, :user_id, :category_id, :image_detail_media, presence: true
 
   belongs_to :user
   belongs_to :category

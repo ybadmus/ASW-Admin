@@ -5,7 +5,7 @@ module ApplicationHelper
     @menus = Category.all
   end
 
-  def decide_back_path
+  def back_button_path
     if @category_id.to_i > 0 
       category_path(@category_id)
     else

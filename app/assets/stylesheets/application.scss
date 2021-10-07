@@ -107,6 +107,7 @@ h6 {
     border-radius: .25rem;
     background-color: #fbfbfb;
     background-clip: border-box;
+    padding: 10px;
 }
 
 .post-show {
@@ -122,6 +123,10 @@ h6 {
     box-shadow: none !important;
     width: 100%;
     padding: 5px;
+}
+
+.post-form .form-group {
+    padding: 0.5rem
 }
 
 .image-detail-view {

@@ -129,6 +129,10 @@ h6 {
     padding: 0.5rem
 }
 
+.post-form .post-form-column {
+    padding: 0rem;
+}
+
 .image-detail-view {
     width: 100%;
 }
@@ -188,8 +192,13 @@ p {
 }
 
 #post_description {
-    height: 250px;
+    height: 350px;
     overflow-y: scroll;
+}
+
+.post_actions_buttons {
+    margin-top: 2rem;
+    padding: 5px;
 }
 
 @media (max-width: 991.98px) {

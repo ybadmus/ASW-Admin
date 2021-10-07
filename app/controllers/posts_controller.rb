@@ -87,4 +87,6 @@ class PostsController < ApplicationController
     Category.all.each { |item| categories << [item.name, item.id] }
     categories
   end
+
+  
 end

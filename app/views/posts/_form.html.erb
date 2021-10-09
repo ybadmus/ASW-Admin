@@ -17,14 +17,14 @@
     <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="form-group d-none d-lg-block">
+  <div class="form-group d-none d-md-block">
     <%= form.label :description, "Description:", class: "control-label" %>
-    <%= form.rich_text_area :description, class: "form-control d-md-none d-lg-block" %>
+    <%= form.rich_text_area :description, class: "form-control d-none d-md-block" %>
   </div>
 
-  <div class="form-group d-md-block d-lg-none">
+  <div class="form-group d-block d-md-none">
     <%= form.label :description, "Description:", class: "control-label" %>
-    <%= form.text_area :description, class: "form-control d-md-block d-lg-none" %>
+    <%= form.text_area :description_sm, rows: 10, style: 'width:100%', class: "form-control d-block d-md-none" %>
   </div>
 
   <div class="form-group">

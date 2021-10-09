@@ -1,5 +1,5 @@
 # ASW Admin
-The project is the administration portal for Awutu Senya Watch website https://awutusenyawatch.com, this is where content on the official website is managed.
+Portal for administering Awutu Senya Watch website, this is where content on the official website is managed.
 
 ![screenshot](https://raw.githubusercontent.com/ybadmus/ASW-Admin/api_v1/app_screenshot(1).png)
 ![screenshot](https://raw.githubusercontent.com/ybadmus/ASW-Admin/api_v1/app_screenshot(2).png)

@@ -8,7 +8,7 @@
 
       <p>
         <strong>Title:</strong>
-        <%= @post.title %>
+        <%= @post.title %> 
       </p>
 
       <p>
@@ -17,37 +17,8 @@
       </p>
 
       <p>
-        <strong>Story image:</strong>
-        <%= @post.story_image %>
-      </p>
-
-      <p>
-        <strong>Detail media:</strong>
-        <%= @post.detail_media %>
-      </p>
-
-      <p>
-        <strong>Details media type:</strong>
-        <% if @post.image_detail_media %>
-          Picture
-        <% else %>
-          Video
-        <% end %>
-      </p>
-
-      <p>
-        <strong>Source:</strong>
-        <%= @post.source %>
-      </p>
-
-      <p>
-        <strong>Posted by:</strong>
-        <%= @post.user.username %>
-      </p>
-
-      <p>
-        <strong>Category:</strong>
-        <%= @post.category.name %>
+        Author:
+        <strong><%= @post.user.username %></strong>
       </p>
 
       <%= link_to category_path(@post.category.id) do %>

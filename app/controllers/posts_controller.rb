@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @categories = initialize_category
-    @category_id = request.referer.last(1).to_i
+    @category_id = request&.referer&.last(1)&.to_i
   end
 
   # GET /posts/1/edit
@@ -70,10 +70,10 @@ class PostsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_post post_id
+  def set_post(post_id)
     Post.find(post_id)
-  rescue
-    render json: {errors: ["Post could not be found"]}, status: 404 
+  rescue StandardError
+    render json: { errors: ['Post could not be found'] }, status: 404
   end
 
   # Only allow a list of trusted parameters through.
@@ -87,4 +87,6 @@ class PostsController < ApplicationController
     Category.all.each { |item| categories << [item.name, item.id] }
     categories
   end
+
+  
 end

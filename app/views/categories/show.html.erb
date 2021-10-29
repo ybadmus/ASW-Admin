@@ -23,11 +23,8 @@
                   <%= link_to(post) do %>
                     <h6 class="card-title"><%= post.title %></h6>
                   <% end %>
-                  <% if post.description.length > 300 %>
-                    <p><%= post.description.slice(0..300) %> .....</p>
-                  <% else %>
-                    <p><%= post.description %></p>
-                  <% end %>
+
+                  <p><%= descriptor post.description %></p>
                 </div>
                 
                 <div class="card-action">

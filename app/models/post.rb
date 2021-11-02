@@ -2,7 +2,7 @@
 
 class Post < ApplicationRecord
   default_scope { order(updated_at: :desc) }
-  before_validation :description_in_both_columns#, on: :create
+  before_validation :description_in_both_columns, on: [:create, :update]
 
   has_rich_text :description
 
@@ -11,22 +11,24 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  def related_stories
-    category.posts.order('RANDOM()').reject { |n| n === self }.take(6)
-  end
+  private
 
-  def next
-    return self.class.unscoped.first if self === self.class.unscoped.last
-    self.class.where('id > ?', id).first
-  end
+    def related_stories
+      category.posts.order('RANDOM()').reject { |n| n === self }.take(6)
+    end
 
-  def previous
-    return self.class.unscoped.last if self === self.class.unscoped.first
-    self.class.where('id < ?', id).last
-  end
+    def next
+      return self.class.unscoped.first if self === self.class.unscoped.last
+      self.class.where('id > ?', id).first
+    end
 
-  def description_in_both_columns
-    self.description = description_sm unless description.present?
-    self.description_sm = description unless description_sm.present?
-  end
+    def previous
+      return self.class.unscoped.last if self === self.class.unscoped.first
+      self.class.where('id < ?', id).last
+    end
+
+    def description_in_both_columns
+      self.description = description_sm unless description.present?
+      self.description_sm = description unless description_sm.present?
+    end
 end

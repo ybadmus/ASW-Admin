@@ -16,7 +16,12 @@ class PostSerializer < ActiveModel::Serializer
     object.image_detail_media
   end
 
+  def description
+    object.description.body
+  end
+
   def related_stories
     object.related_stories
   end
+
 end

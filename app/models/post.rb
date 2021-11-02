@@ -11,8 +11,6 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  private
-
     def related_stories
       category.posts.order('RANDOM()').reject { |n| n === self }.take(6)
     end

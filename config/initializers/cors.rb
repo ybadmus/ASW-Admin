@@ -2,7 +2,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://unruffled-ride-f00887.netlify.app', 'https://mystifying-ride-487431.netlify.app', 'https://www.awutusenyawatch.com', 'http://localhost:3000'
+    origins 'https://unruffled-ride-f00887.netlify.app', 'https://mystifying-ride-487431.netlify.app', 'https://www.aswnews.com', 'http://localhost:3000'
 
 
     resource '/*',

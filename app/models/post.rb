@@ -2,7 +2,7 @@
 
 class Post < ApplicationRecord
   default_scope { order(updated_at: :desc) }
-  before_validation :description_in_both_columns, on: [ :create, :update ]
+  before_validation :description_in_both_columns, on: [:create, :update]
 
   has_rich_text :description
 

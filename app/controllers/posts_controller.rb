@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user).all
   end
 
   # GET /posts/1 or /posts/1.json
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @categories = initialize_category
     @category_id = request&.referer&.last(1)&.to_i
-  end 
+  end
 
   # GET /posts/1/edit
   def edit
@@ -71,7 +71,7 @@ class PostsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post(post_id)
-    Post.find(post_id)
+    Post.includes(:user).find(post_id)
   rescue StandardError
     render json: { errors: ['Post could not be found'] }, status: 404
   end
@@ -87,6 +87,4 @@ class PostsController < ApplicationController
     Category.all.each { |item| categories << [item.name, item.id] }
     categories
   end
-
-  
 end

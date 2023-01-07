@@ -23,5 +23,4 @@ class PostSerializer < ActiveModel::Serializer
   def related_stories
     object.related_stories
   end
-
 end
